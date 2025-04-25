@@ -8,7 +8,8 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon --ignore *.json app.js"
+    "start": "node app.js",
+    "start-server": "nodemon --ignore *.json app.js"
   },
   "dependencies": {
     "body-parser": "^2.2.0",
