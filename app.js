@@ -10,6 +10,7 @@ app.use(bodyParser.json());
 const allowedOrigins = [
     'http://localhost:80',
     'http://192.168.0.106',
+    'https://tasktracker-web-a15fe10a9395.herokuapp.com'
 ];
 
 
