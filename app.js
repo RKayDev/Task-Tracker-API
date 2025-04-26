@@ -5,7 +5,7 @@ import mainRouter from "./routers/mainRouter.js";
 
 const app = express();
 const port = process.env.PORT || 81;
-app.use(bodyParser.json());
+
 
 const allowedOrigins = [
     'http://localhost:80',
@@ -13,7 +13,7 @@ const allowedOrigins = [
     'https://tasktracker-web-a15fe10a9395.herokuapp.com'
 ];
 
-
+app.use(bodyParser.json());
 app.use(cors({
     origin: allowedOrigins
 })); // 👈 This allows ALL origins by default

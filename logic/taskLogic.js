@@ -21,7 +21,7 @@ const createTask = async (userid, title, description) => {
             if (tasks.find(t => t.id === task.id)) throw new Error("Task already exists");
         }
 
-        tasks.push(task);
+        tasks.unshift(task);
         console.log(tasks);
         await database.write(JSON.stringify(tasks, null, 2));
 
@@ -120,8 +120,7 @@ const getTasks = async (userid) => {
     }
     else {
         if (tasks.find(t => t.userid == userid)) {
-            let usertasks = tasks.filter(t => t.userid == userid);
-            console.log(usertasks);
+            let usertasks = tasks.filter(t => t.userid == userid);            
             return usertasks;
         }
     }
