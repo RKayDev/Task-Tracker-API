@@ -64,16 +64,16 @@ const updateTask = async (id, title, description, completed) => {
         tasks = [];
     }
 
-    console.log(tasks);
     if (tasks === null) {
         tasks = [];
     }
     else {
+        console.log(completed);
         if (tasks.find(t => t.id == id)) {
             let taskIndex = tasks.findIndex(t => t.id == id);
-            if (title.length > 0) tasks[taskIndex].title = title;
-            if (description.length > 0) tasks[taskIndex].description = description;
-            if (completed.length > 0) tasks[taskIndex].completed = completed == "true";
+            if (title != undefined && title.length > 0) tasks[taskIndex].title = title;
+            if (description != undefined && description.length > 0) tasks[taskIndex].description = description;
+            if (completed != undefined) tasks[taskIndex].completed = completed.toString() == "true";
 
             await database.write(JSON.stringify(tasks, null, 2));
             return tasks[taskIndex];
