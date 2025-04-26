@@ -4,6 +4,7 @@ import { fileURLToPath } from 'url';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const databaseFile = join(__dirname, 'database.json');
+const databaseFileCopy = join(__dirname, 'database copy.json');
 
 const database = {
     async read() {
@@ -15,6 +16,9 @@ const database = {
         } catch (error) {
             console.error("Error writing to database:", error);
         }
+    },
+    async reset() {
+        return await readFile(databaseFileCopy);
     }
 };
 

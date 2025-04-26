@@ -114,8 +114,9 @@ const getTasks = async (userid) => {
         tasks = [];
         return;
     }
-    if (tasks === null) {
-        tasks = [];
+    if (tasks === null || tasks.length == 0) {
+        tasks = JSON.parse(await database.reset());
+        database.write(JSON.stringify(tasks, null, 2));
     }
     else {
         if (tasks.find(t => t.userid == userid)) {
